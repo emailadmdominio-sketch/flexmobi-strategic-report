@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Flexmobi — Evolução RJ e ES</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#050816;--border:rgba(255,255,255,.08);--white:#f5f7ff;--gray:#9aa4bf;--yellow:#ffd84d;--green:#00f5a0;--purple:#9b5de5;--blue:#00b4d8}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+body{background:radial-gradient(circle at top left,rgba(255,216,77,.12),transparent 24%),radial-gradient(circle at 80% 20%,rgba(155,93,229,.18),transparent 30%),radial-gradient(circle at bottom right,rgba(0,180,216,.12),transparent 28%),#050816;font-family:Inter,sans-serif;color:var(--white);overflow-x:hidden;cursor:none}
+body:before{content:"";position:fixed;inset:0;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:72px 72px;pointer-events:none;z-index:0}
+section{padding:80px 6vw;position:relative;z-index:2}
+.label{display:inline-block;padding:8px 18px;border:1px solid var(--border);border-radius:999px;margin-bottom:30px;font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:#cfd6ea;backdrop-filter:blur(10px)}
+.hero{min-height:72vh;display:flex;flex-direction:column;justify-content:center}
+.hero h1{font-family:Sora,sans-serif;font-size:clamp(4rem,10vw,8rem);font-weight:800;line-height:.9;margin-bottom:20px;letter-spacing:-.06em}.yellow{color:var(--yellow)}.blue{color:var(--blue)}
+.hero p{max-width:720px;color:var(--gray);font-size:1.12rem;line-height:1.8}
+.section-title{font-family:Sora,sans-serif;font-size:clamp(2rem,4vw,4rem);margin-bottom:16px;letter-spacing:-.04em}
+.section-sub{max-width:780px;line-height:1.8;color:var(--gray);margin-bottom:50px}
+.transition-block{padding:110px 6vw;min-height:55vh;display:flex;align-items:center;position:relative;z-index:2}
+.transition-card{width:100%;border:1px solid rgba(255,255,255,.08);border-radius:34px;padding:56px;background:linear-gradient(145deg,rgba(255,255,255,.04),rgba(255,255,255,.015)),radial-gradient(circle at top right,rgba(0,180,216,.14),transparent 36%);box-shadow:0 40px 90px rgba(0,0,0,.35)}
+.transition-card h2{font-family:Sora,sans-serif;font-size:clamp(2.2rem,5vw,5rem);line-height:1;letter-spacing:-.06em;max-width:960px;margin-bottom:24px}
+.transition-card p{color:var(--gray);max-width:780px;line-height:1.8;font-size:1.1rem}
+.rocket-cursor{position:fixed;left:0;top:0;width:42px;height:42px;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);filter:drop-shadow(0 0 12px rgba(255,216,77,.45));transition:transform .08s linear}
+.rocket-trail{position:fixed;left:0;top:0;width:10px;height:10px;border-radius:50%;pointer-events:none;z-index:9998;background:radial-gradient(circle,var(--yellow),rgba(155,93,229,.6),transparent 70%);opacity:.7;transform:translate(-50%,-50%)}
+.horizontal-wrapper{height:460vh;position:relative;z-index:2}.horizontal-wrapper.es{height:560vh}
+.horizontal-sticky{position:sticky;top:0;height:100vh;overflow:hidden;display:flex;align-items:center}
+.horizontal-track{display:flex;gap:40px;padding-left:8vw;will-change:transform}
+.month-card{min-width:82vw;height:78vh;background:linear-gradient(145deg,rgba(13,18,36,.96),rgba(7,11,24,.96));border:1px solid var(--border);border-radius:34px;padding:56px;display:grid;align-content:center;position:relative;overflow:hidden;box-shadow:0 40px 90px rgba(0,0,0,.45)}
+.month-card:before{content:"";position:absolute;inset:-1px;background:radial-gradient(circle at 75% 20%,rgba(255,216,77,.16),transparent 30%),radial-gradient(circle at 20% 80%,rgba(155,93,229,.16),transparent 34%);pointer-events:none}
+.month-card.es-card:before{background:radial-gradient(circle at 75% 20%,rgba(0,180,216,.18),transparent 30%),radial-gradient(circle at 20% 80%,rgba(155,93,229,.16),transparent 34%)}
+.month-card:after{content:"";position:absolute;left:0;top:0;height:4px;width:100%;background:linear-gradient(90deg,var(--yellow),var(--purple),var(--blue));opacity:.9}.month-card.es-card:after{background:linear-gradient(90deg,var(--blue),var(--purple),var(--green))}
+.month-content{position:relative;z-index:2;max-width:980px}.month-name{font-size:.9rem;letter-spacing:.25em;text-transform:uppercase;color:var(--yellow);margin-bottom:18px;font-weight:800}.es-card .month-name{color:var(--blue)}
+.month-headline{font-family:Sora,sans-serif;font-size:clamp(2.6rem,5.5vw,5.4rem);line-height:.95;max-width:980px;margin-bottom:36px;letter-spacing:-.06em}
+.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.metric{padding:24px;background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.07);border-radius:22px;backdrop-filter:blur(10px)}
+.metric strong{display:block;font-size:clamp(2.2rem,4vw,4rem);font-family:Sora,sans-serif;margin-bottom:6px;line-height:1}.metric span{color:#d7dcf0;font-weight:600;display:block}.metric small{display:block;margin-top:10px;color:var(--green);font-size:1rem;font-weight:700}
+.month-note{margin-top:30px;color:var(--gray);max-width:790px;line-height:1.8;font-size:1rem}
+.progress-dots{position:fixed;bottom:34px;left:50%;transform:translateX(-50%);display:flex;gap:10px;z-index:20;opacity:0;transition:opacity .25s ease}.progress-dots.show{opacity:1}.progress-dots span{width:42px;height:4px;border-radius:999px;background:rgba(255,255,255,.15)}.progress-dots span.active{background:var(--yellow);box-shadow:0 0 18px rgba(255,216,77,.5)}.progress-dots.es-dots span.active{background:var(--blue);box-shadow:0 0 18px rgba(0,180,216,.5)}
+@media(max-width:900px){body{cursor:auto}.rocket-cursor,.rocket-trail{display:none}.horizontal-wrapper,.horizontal-wrapper.es{height:auto}.horizontal-sticky{position:relative;height:auto;overflow:auto;padding-bottom:30px}.horizontal-track{overflow-x:auto;padding:0 6vw 24px}.month-card{min-width:90vw;height:auto;min-height:78vh;padding:36px 26px}.metrics{grid-template-columns:1fr}.progress-dots{display:none}.transition-card{padding:34px 26px}}
+</style>
+</head>
+<body>
+
+<div class="rocket-cursor" id="rocket">
+  <div style="
+    font-size:34px;
+    line-height:1;
+    filter:drop-shadow(0 0 14px rgba(255,216,77,.45));
+  ">
+    🚀
+  </div>
+</div>
+
+
+<section class="hero"><div class="label">Relatório Estratégico de Resultados</div><h1><span class="yellow">Flex</span>mobi</h1><p>Construindo presença, percepção e crescimento entre RJ e ES.</p></section>
+
+<section><h2 class="section-title"><span class="yellow">RJ</span> — Evolução de Performance</h2><p class="section-sub">A leitura abaixo organiza os principais indicadores mês a mês, mostrando a evolução de visualizações, descoberta por não seguidores e crescimento da base.</p></section>
+
+<div class="horizontal-wrapper" id="horizontalRJ"><div class="horizontal-sticky"><div class="horizontal-track" id="trackRJ">
+<article class="month-card"><div class="month-content"><div class="month-name">Janeiro</div><h3 class="month-headline">Início do crescimento e descoberta de novos públicos.</h3><div class="metrics"><div class="metric"><strong>32 mil</strong><span>Visualizações de reels e posts</span><small>+13% em relação a dezembro</small></div><div class="metric"><strong>53%</strong><span>Visualizações de não seguidores</span><small>+17% em relação a dezembro</small></div><div class="metric"><strong>7,6 mil</strong><span>Seguidores</span><small>+124 em relação a dezembro</small></div></div><p class="month-note">O mês abriu a jornada com crescimento de alcance e sinais positivos de descoberta orgânica.</p></div></article>
+<article class="month-card"><div class="month-content"><div class="month-name">Fevereiro</div><h3 class="month-headline">Maior proporção de visualizações vindo de novos públicos.</h3><div class="metrics"><div class="metric"><strong>23 mil</strong><span>Visualizações de reels e posts</span></div><div class="metric"><strong>57%</strong><span>Visualizações de não seguidores</span></div><div class="metric"><strong>7,7 mil</strong><span>Seguidores</span><small>+97 em relação a janeiro</small></div></div><p class="month-note">Mesmo com menor volume total, o percentual de novos públicos cresceu, indicando expansão fora da audiência já existente.</p></div></article>
+<article class="month-card"><div class="month-content"><div class="month-name">Março</div><h3 class="month-headline">Virada de alcance e aceleração da descoberta.</h3><div class="metrics"><div class="metric"><strong>43 mil</strong><span>Visualizações de reels e posts</span><small>+85% em relação a fevereiro</small></div><div class="metric"><strong>69%</strong><span>Visualizações de não seguidores</span><small>+122% em relação a fevereiro</small></div><div class="metric"><strong>7,9 mil</strong><span>Seguidores</span><small>+239 em relação a fevereiro</small></div></div><p class="month-note">Março representou o salto mais forte do período, combinando crescimento de visualizações e aumento de descoberta.</p></div></article>
+<article class="month-card"><div class="month-content"><div class="month-name">Abril</div><h3 class="month-headline">Consolidação do crescimento e novo pico de visualizações.</h3><div class="metrics"><div class="metric"><strong>61 mil</strong><span>Visualizações de reels e posts</span><small>+40% em relação a março</small></div><div class="metric"><strong>56%</strong><span>Visualizações de não seguidores</span><small>+13% em relação a março</small></div><div class="metric"><strong>8,1 mil</strong><span>Seguidores</span><small>+215 em relação a março</small></div></div><p class="month-note">Abril consolidou a evolução com o maior volume de visualizações do recorte analisado.</p></div></article>
+</div></div></div>
+
+<section class="transition-block"><div class="transition-card"><h2>Enquanto o RJ consolidava presença, o ES construía descoberta.</h2><p>A unidade ES apresenta uma leitura diferente: menos foco em volume absoluto e mais força na expansão para novos públicos, com percentuais altos de visualizações vindas de pessoas que ainda não seguiam a marca.</p></div></section>
+
+<section><h2 class="section-title"><span class="blue">ES</span> — Construção de Presença Digital</h2><p class="section-sub">O recorte do ES começa em dezembro para mostrar a base da construção, a evolução da audiência e a recorrência de descoberta por novos públicos.</p></section>
+
+<div class="horizontal-wrapper es" id="horizontalES"><div class="horizontal-sticky"><div class="horizontal-track" id="trackES">
+<article class="month-card es-card"><div class="month-content"><div class="month-name">Dezembro</div><h3 class="month-headline">Primeiro pico de descoberta e alcance para novos públicos.</h3><div class="metrics"><div class="metric"><strong>32 mil</strong><span>Visualizações de reels e posts</span><small>+140% em relação a novembro</small></div><div class="metric"><strong>87%</strong><span>Visualizações de não seguidores</span><small>+255% em relação a novembro</small></div><div class="metric"><strong>164</strong><span>Seguidores</span><small>+54 em relação a novembro</small></div></div><p class="month-note">Dezembro indicou alto potencial de descoberta, com a maior parte das visualizações vindo de pessoas fora da base de seguidores.</p></div></article>
+<article class="month-card es-card"><div class="month-content"><div class="month-name">Janeiro</div><h3 class="month-headline">Reorganização da base e continuidade de crescimento.</h3><div class="metrics"><div class="metric"><strong>11 mil</strong><span>Visualizações de reels e posts</span></div><div class="metric"><strong>67%</strong><span>Visualizações de não seguidores</span></div><div class="metric"><strong>233</strong><span>Seguidores</span><small>+72 em relação a dezembro</small></div></div><p class="month-note">Mesmo em um mês de menor volume, a unidade manteve forte presença em públicos ainda não seguidores e seguiu ampliando a base.</p></div></article>
+<article class="month-card es-card"><div class="month-content"><div class="month-name">Fevereiro</div><h3 class="month-headline">Retomada de alcance e avanço da audiência.</h3><div class="metrics"><div class="metric"><strong>17 mil</strong><span>Visualizações de reels e posts</span><small>+59% em relação a janeiro</small></div><div class="metric"><strong>69%</strong><span>Visualizações de não seguidores</span><small>+63% em relação a janeiro</small></div><div class="metric"><strong>326</strong><span>Seguidores</span><small>+95 em relação a janeiro</small></div></div><p class="month-note">Fevereiro trouxe retomada do volume de visualizações e crescimento contínuo da base de seguidores.</p></div></article>
+<article class="month-card es-card"><div class="month-content"><div class="month-name">Março</div><h3 class="month-headline">Expansão consistente e fortalecimento regional.</h3><div class="metrics"><div class="metric"><strong>26 mil</strong><span>Visualizações de reels e posts</span><small>+45% em relação a fevereiro</small></div><div class="metric"><strong>79%</strong><span>Visualizações de não seguidores</span><small>+66% em relação a fevereiro</small></div><div class="metric"><strong>467</strong><span>Seguidores</span><small>+146 em relação a fevereiro</small></div></div><p class="month-note">Março reforçou o papel dos conteúdos como ferramenta de descoberta e crescimento local.</p></div></article>
+<article class="month-card es-card"><div class="month-content"><div class="month-name">Abril</div><h3 class="month-headline">Consolidação da descoberta e avanço da presença digital.</h3><div class="metrics"><div class="metric"><strong>29 mil</strong><span>Visualizações de reels e posts</span><small>+11% em relação a março</small></div><div class="metric"><strong>79%</strong><span>Visualizações de não seguidores</span><small>+12% em relação a março</small></div><div class="metric"><strong>554</strong><span>Seguidores</span><small>+86 em relação a março</small></div></div><p class="month-note">Abril manteve o percentual alto de novos públicos, mostrando consistência na expansão da presença digital do ES.</p></div></article>
+</div></div></div>
+
+<div class="progress-dots" id="dotsRJ"><span class="active"></span><span></span><span></span><span></span></div>
+<div class="progress-dots es-dots" id="dotsES"><span class="active"></span><span></span><span></span><span></span><span></span></div>
+
+<script>
+function setupHorizontal(wrapperId, trackId, dotsId, count){
+  const wrapper=document.getElementById(wrapperId),track=document.getElementById(trackId),dotsBox=document.getElementById(dotsId),dots=dotsBox.querySelectorAll("span");
+  function update(){
+    if(window.innerWidth<=900)return;
+    const rect=wrapper.getBoundingClientRect(),scrollable=wrapper.offsetHeight-window.innerHeight;
+    const progress=Math.min(Math.max(-rect.top/scrollable,0),1);
+    const maxTranslate=track.scrollWidth-window.innerWidth+window.innerWidth*.08;
+    track.style.transform=`translateX(-${progress*maxTranslate}px)`;
+    const active=rect.top<=80&&rect.bottom>=window.innerHeight*.5;
+    dotsBox.classList.toggle("show",active);
+    const index=Math.min(count-1,Math.floor(progress*count));
+    dots.forEach((dot,i)=>dot.classList.toggle("active",i===index));
+  }
+  window.addEventListener("scroll",update);window.addEventListener("resize",update);update();
+}
+setupHorizontal("horizontalRJ","trackRJ","dotsRJ",4);
+setupHorizontal("horizontalES","trackES","dotsES",5);
+
+const rocket=document.getElementById("rocket");let mouseX=innerWidth/2,mouseY=innerHeight/2,rocketX=mouseX,rocketY=mouseY;
+addEventListener("mousemove",e=>{mouseX=e.clientX;mouseY=e.clientY;const trail=document.createElement("div");trail.className="rocket-trail";trail.style.left=mouseX+"px";trail.style.top=mouseY+"px";document.body.appendChild(trail);setTimeout(()=>{trail.style.transition="all .55s ease";trail.style.opacity="0";trail.style.transform="translate(-50%,-50%) scale(0)"},10);setTimeout(()=>trail.remove(),650)});
+function animateRocket(){rocketX+=(mouseX-rocketX)*.16;rocketY+=(mouseY-rocketY)*.16;const angle=Math.atan2(mouseY-rocketY,mouseX-rocketX)*180/Math.PI+45;rocket.style.left=rocketX+"px";rocket.style.top=rocketY+"px";rocket.style.transform=`translate(-50%,-50%) rotate(${angle}deg)`;requestAnimationFrame(animateRocket)}animateRocket();
+</script>
+
+<section style="padding-top:120px;padding-bottom:120px;position:relative;z-index:2">
+  <h2 class="section-title">Coberturas, eventos e captações</h2>
+  <p class="section-sub">
+    Produções realizadas presencialmente pela Agência Domínio para fortalecimento da marca, criação de percepção premium e geração de conteúdo estratégico.
+  </p>
+
+  <div class="video-grid">
+
+    <div class="video-card">
+      <video autoplay muted loop playsinline>
+        <source src="video1.mp4" type="video/mp4">
+      </video>
+
+      <div class="video-overlay">
+        <span>✨ Cobertura Agência Domínio</span>
+      </div>
+    </div>
+
+    <div class="video-card">
+      <video autoplay muted loop playsinline>
+        <source src="video2.mp4" type="video/mp4">
+      </video>
+
+      <div class="video-overlay">
+        <span>🎥 Captação Presencial</span>
+      </div>
+    </div>
+
+    <div class="video-card">
+      <video autoplay muted loop playsinline>
+        <source src="video3.mp4" type="video/mp4">
+      </video>
+
+      <div class="video-overlay">
+        <span>🚀 Produção de Conteúdo</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+.video-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:24px;
+margin-top:40px;
+}
+
+.video-card{
+position:relative;
+border-radius:28px;
+overflow:hidden;
+border:1px solid rgba(255,255,255,.08);
+background:rgba(255,255,255,.03);
+box-shadow:0 30px 70px rgba(0,0,0,.35);
+transition:transform .4s ease, box-shadow .4s ease;
+min-height:620px;
+}
+
+.video-card:hover{
+transform:translateY(-8px) scale(1.01);
+box-shadow:0 40px 100px rgba(0,0,0,.45);
+}
+
+.video-card video{
+width:100%;
+height:100%;
+object-fit:cover;
+display:block;
+}
+
+.video-overlay{
+position:absolute;
+left:22px;
+bottom:22px;
+z-index:2;
+}
+
+.video-overlay span{
+display:inline-flex;
+align-items:center;
+gap:10px;
+padding:10px 16px;
+border-radius:999px;
+background:rgba(0,0,0,.45);
+backdrop-filter:blur(14px);
+border:1px solid rgba(255,255,255,.12);
+font-size:.72rem;
+letter-spacing:.12em;
+text-transform:uppercase;
+font-weight:700;
+}
+
+@media(max-width:900px){
+.video-grid{
+grid-template-columns:1fr;
+}
+.video-card{
+min-height:520px;
+}
+}
+</style>
+
+
+<!-- ================================
+     VISION BOARD 2026 — ADICIONADO APÓS A ESTRUTURA ORIGINAL
+     Mantém intacto: hero, foguete, scroll horizontal, RJ, ES e vídeos.
+================================ -->
+<section class="vision-board-section">
+  <div class="label">Vision Board 2026</div>
+
+  <h2 class="section-title vision-title">
+    O que estamos construindo daqui pra frente.
+  </h2>
+
+  <p class="section-sub vision-sub">
+    Mais do que crescimento de métricas, o próximo passo da Flexmobi envolve construção de marca, fortalecimento de presença e expansão estratégica entre plataformas, pontos físicos e conteúdos de autoridade.
+  </p>
+
+  <div class="vision-grid">
+    <div class="vision-main-card">
+      <div class="vision-kicker">Ecossistema de Plataformas</div>
+
+      <h3>Instagram como central estratégica da marca.</h3>
+
+      <p>
+        A estrutura de conteúdo da Flexmobi passa a operar de forma integrada, utilizando o Instagram como núcleo principal de distribuição e direcionamento estratégico para as demais plataformas.
+      </p>
+
+      <div class="vision-mini-grid">
+        <div class="vision-mini-card">
+          <h4>Instagram</h4>
+          <p>Lifestyle • Modelos • Promoções • Autoridade • Alcance</p>
+        </div>
+
+        <div class="vision-mini-card">
+          <h4>TikTok</h4>
+          <p>Reposts estratégicos para ampliação de alcance e consistência.</p>
+        </div>
+
+        <div class="vision-mini-card">
+          <h4>YouTube</h4>
+          <p>Conteúdos ricos, reviews, testes reais, autonomia e autoridade.</p>
+        </div>
+
+        <div class="vision-mini-card">
+          <h4>TVs internas e externas</h4>
+          <p>Experiência física conectada ao processo de decisão de compra.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="vision-side-stack">
+      <div class="vision-side-card">
+        <div class="vision-side-label">YouTube</div>
+        <h3>Expansão de autoridade.</h3>
+        <p>
+          Conteúdos mais aprofundados e demonstrativos para aumentar percepção de valor da marca.
+        </p>
+      </div>
+
+      <div class="vision-side-card">
+        <div class="vision-side-label">TV In & TV Ex</div>
+        <h3>Jornada omnichannel.</h3>
+        <p>
+          A experiência digital passa a acompanhar o cliente também dentro e fora da loja física.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="creation-wrap">
+    <div class="label">Base de Criação</div>
+
+    <h2 class="section-title">
+      Estrutura estratégica de conteúdo.
+    </h2>
+
+    <p class="section-sub">
+      A produção da Flexmobi será organizada em pilares estratégicos que equilibram alcance, relacionamento e autoridade.
+    </p>
+
+    <div class="creation-grid">
+      <div class="creation-card creation-hero">
+        <div class="creation-tag">HERO</div>
+        <h3>Conteúdos de alcance</h3>
+        <p>
+          Vídeos mais chamativos, tendências e formatos com alto potencial de compartilhamento e descoberta.
+        </p>
+      </div>
+
+      <div class="creation-card creation-hub">
+        <div class="creation-tag">HUB</div>
+        <h3>Relacionamento e lifestyle</h3>
+        <p>
+          Bastidores, dia a dia, uso real das bikes e conteúdos que aproximam o público da marca.
+        </p>
+      </div>
+
+      <div class="creation-card creation-help">
+        <div class="creation-tag">HELP</div>
+        <h3>Educação e autoridade</h3>
+        <p>
+          Conteúdos recorrentes que ajudam o público a entender melhor os produtos e reforçam credibilidade.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+.vision-board-section{
+  padding-top:140px;
+  padding-bottom:140px;
+  position:relative;
+  z-index:2;
+}
+
+.vision-title{
+  max-width:1000px;
+}
+
+.vision-sub{
+  max-width:900px;
+}
+
+.vision-grid{
+  display:grid;
+  grid-template-columns:1.2fr .8fr;
+  gap:28px;
+  margin-top:60px;
+}
+
+.vision-main-card{
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:32px;
+  padding:42px;
+  background:
+    linear-gradient(145deg,rgba(255,255,255,.03),rgba(255,255,255,.01)),
+    radial-gradient(circle at top right,rgba(255,216,77,.12),transparent 35%);
+  backdrop-filter:blur(20px);
+  box-shadow:0 30px 80px rgba(0,0,0,.35);
+}
+
+.vision-kicker{
+  font-size:.75rem;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:#ffd84d;
+  margin-bottom:18px;
+  font-weight:700;
+}
+
+.vision-main-card h3{
+  font-family:Sora,sans-serif;
+  font-size:clamp(2rem,4vw,3.8rem);
+  line-height:.95;
+  letter-spacing:-.05em;
+  margin-bottom:26px;
+}
+
+.vision-main-card p{
+  color:#9aa4bf;
+  line-height:1.9;
+  font-size:1rem;
+  max-width:720px;
+  margin-bottom:36px;
+}
+
+.vision-mini-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:18px;
+}
+
+.vision-mini-card{
+  padding:22px;
+  border-radius:22px;
+  background:rgba(255,255,255,.03);
+  border:1px solid rgba(255,255,255,.08);
+}
+
+.vision-mini-card h4{
+  font-family:Sora,sans-serif;
+  font-size:1.1rem;
+  margin-bottom:10px;
+}
+
+.vision-mini-card p{
+  color:#9aa4bf;
+  line-height:1.7;
+  font-size:.96rem;
+  margin:0;
+}
+
+.vision-side-stack{
+  display:flex;
+  flex-direction:column;
+  gap:24px;
+}
+
+.vision-side-card{
+  flex:1;
+  border-radius:28px;
+  padding:34px;
+  border:1px solid rgba(255,255,255,.08);
+  background:
+    linear-gradient(145deg,rgba(255,255,255,.03),rgba(255,255,255,.01)),
+    radial-gradient(circle at top right,rgba(0,180,216,.12),transparent 35%);
+  backdrop-filter:blur(18px);
+  box-shadow:0 25px 60px rgba(0,0,0,.28);
+}
+
+.vision-side-label{
+  font-size:.72rem;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+  color:#00b4d8;
+  margin-bottom:14px;
+  font-weight:700;
+}
+
+.vision-side-card h3{
+  font-family:Sora,sans-serif;
+  font-size:2rem;
+  line-height:1;
+  margin-bottom:18px;
+  letter-spacing:-.04em;
+}
+
+.vision-side-card p{
+  color:#9aa4bf;
+  line-height:1.8;
+}
+
+.creation-wrap{
+  margin-top:110px;
+}
+
+.creation-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:24px;
+  margin-top:40px;
+}
+
+.creation-card{
+  position:relative;
+  padding:36px;
+  border-radius:28px;
+  border:1px solid rgba(255,255,255,.08);
+  overflow:hidden;
+  min-height:320px;
+  box-shadow:0 25px 70px rgba(0,0,0,.32);
+}
+
+.creation-hero{
+  background:
+    linear-gradient(145deg,rgba(255,216,77,.12),rgba(255,255,255,.02)),
+    #0d1224;
+}
+
+.creation-hub{
+  background:
+    linear-gradient(145deg,rgba(155,93,229,.16),rgba(255,255,255,.02)),
+    #0d1224;
+}
+
+.creation-help{
+  background:
+    linear-gradient(145deg,rgba(0,180,216,.14),rgba(255,255,255,.02)),
+    #0d1224;
+}
+
+.creation-tag{
+  display:inline-flex;
+  padding:10px 16px;
+  border-radius:999px;
+  background:rgba(255,255,255,.08);
+  font-size:.72rem;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+  font-weight:700;
+  margin-bottom:24px;
+}
+
+.creation-card h3{
+  font-family:Sora,sans-serif;
+  font-size:2rem;
+  line-height:1;
+  letter-spacing:-.05em;
+  margin-bottom:20px;
+  max-width:260px;
+}
+
+.creation-card p{
+  color:#c0c8df;
+  line-height:1.8;
+  font-size:1rem;
+  max-width:320px;
+}
+
+@media(max-width:900px){
+  .vision-grid,
+  .creation-grid,
+  .vision-mini-grid{
+    grid-template-columns:1fr;
+  }
+}
+</style>
+
+
+<section style="
+padding:140px 6vw 100px;
+text-align:center;
+position:relative;
+z-index:2;
+">
+
+<div style="
+display:flex;
+justify-content:center;
+margin-bottom:34px;
+">
+<img src="data:image/png;base64,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" style="
+height:74px;
+width:auto;
+object-fit:contain;
+filter:drop-shadow(0 0 24px rgba(155,93,229,.35));
+">
+</div>
+
+<h2 style="
+font-family:Sora,sans-serif;
+font-size:clamp(2.4rem,5vw,5rem);
+line-height:.95;
+letter-spacing:-.06em;
+max-width:980px;
+margin:0 auto 28px;
+">
+Estratégia, presença e construção de marca em movimento.
+</h2>
+
+<p style="
+max-width:760px;
+margin:0 auto;
+color:#9aa4bf;
+line-height:1.9;
+font-size:1.05rem;
+">
+Agência Domínio • Estratégia • Conteúdo • Captação • Performance Visual
+</p>
+
+<div style="
+margin-top:70px;
+opacity:.45;
+font-size:.82rem;
+letter-spacing:.18em;
+text-transform:uppercase;
+">
+Flexmobi × Agência Domínio
+</div>
+
+</section>
+
+</body>
+</html>
